@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+}
+
+.left-side, .right-side {
+    width: 50%;
+    border: 1px solid gray;
+}
+
+li {
+    list-style: none;
+}
+.sample-input {
+    height: 20px;
+    border: 1px solid rebeccapurple;
+    margin: 20px;
+}
