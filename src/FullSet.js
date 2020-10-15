@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import NewQuestion from './NewQuestion.js'
+import './App.css';
+import SingleCorrect from './single-correct.js';
+
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import SingleCorrect from './single-correct.js';
 
+///// MATERIAL-UI CODE /////
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -15,10 +19,23 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
+///// MATERIAL-UI CODE /////
 
-export default function SimpleSelect() {
+
+function FullSet() {
+
   const classes = useStyles();
   const [type, setType] = React.useState('');
+// for the dropdown menu
+  const handleChange = (event) => {
+    setType(event.target.value);
+  }
+
+  const [question, setQuestion] = useState([]);
+
+  const addQuestion = (quests) => {
+    setQuestion([{quests}]);
+  }
 
   const [options, setOptions] = useState([]);
 
@@ -26,12 +43,15 @@ export default function SimpleSelect() {
     setOptions([...options, {opts}])
   }
 
+  
 
-  const handleChange = (event) => {
-    setType(event.target.value);
-  }
   return (
-      <div>
+    <div className="container">
+
+      <div className="left-side">
+        <NewQuestion addQuestion={addQuestion} />
+        {/* passing a prop addQuestion to NewQuestion with the value of the const addQuestion */}
+
         <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="demo-simple-select-outlined-label">Question Type</InputLabel>
             <Select
@@ -50,10 +70,18 @@ export default function SimpleSelect() {
             <MenuItem value={4}>MCQ with Multiple Correct Options</MenuItem>
             </Select>
         </FormControl>
-        {type===3?
-            <div>
-                <SingleCorrect addOptions={addOptions} />
-                {options.map(o => {
+        { type===3? <SingleCorrect addOptions={addOptions} /> : null }
+      </div>
+      <div className="right-side">
+          {question.map(q => {
+            return ( 
+              <div>
+                <label htmlFor="added-question">{q.quests}</label>
+              </div>
+            );
+          })}
+        <div>
+        {options.map(o => {
                     return ( 
                     <div>
                         <input type="radio" name="choice"/>
@@ -61,8 +89,11 @@ export default function SimpleSelect() {
                     </div>
                     );
                 })}
-            </div> : null
-        }
+        </div>
+        
+      </div>
     </div>
   );
 }
+
+export default FullSet;

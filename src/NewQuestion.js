@@ -8,7 +8,6 @@ function NewQuestion ({addQuestion}) {
     function SubmitForm(e) {
         e.preventDefault();
         addQuestion(quest);
-        setQuest('');
       }
 
     function changeInput(e) {
@@ -17,10 +16,9 @@ function NewQuestion ({addQuestion}) {
 
     return (
         <form onSubmit={SubmitForm}>
-            <label>Question: </label>
-            {/* htmlFor attribute links the label to the input since it has the name atrribute with the same value */}
-            <input type="text" value={quest} onChange={changeInput} required/>
-            {/* Instead of name we can write id also */}
+            <label htmlFor="added-question">Question: </label>
+            {/* htmlFor attribute links the label to the input since it has id with the same value */}
+            <input id="added-question" type="text" value={quest} onChange={changeInput} required/>
             <input type="submit" value="add question" />
             <p>{quest}</p>
         </form>
