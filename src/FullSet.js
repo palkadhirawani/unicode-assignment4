@@ -172,12 +172,12 @@ const handleChangeRequired = (event) => {
             })}
   
             { type===1 ?
-              <form className={classesSingle.root} noValidate autoComplete="off" className="text">
+              <form className={classesSingle.root} noValidate autoComplete="off" id="text">
                 <TextField id="outlined-basic" label="" variant="outlined"/>
               </form> : null }
             
             { type===2 ?
-              <form className={classesMulti.root} noValidate autoComplete="off" className="text">
+              <form className={classesMulti.root} noValidate autoComplete="off" id="text1">
                 <TextField
                   id="outlined-multiline-static"
                   label=""
