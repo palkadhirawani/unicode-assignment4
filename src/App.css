@@ -1,17 +1,77 @@
+/* APP.JS */
+.mainform {
+    padding: 50px;
+    border: 2px solid gray;
+    margin: 0 40px;
+    border-radius: 20px;
+}
+.new-question-button {  
+    position: fixed !important;
+    top: 550px;
+    left: 50px;
+    font-size: 1.2em !important;
+    padding: 25px !important;
+    box-shadow: 5px 7px 8px 1px rgba(0, 0, 0, 0.684) !important;
+}
+.heading {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 40px;
+    font-size: 40px;
+    margin: 0;
+}
+
+/* FULLSET.JS */
 .container {
     display: flex;
+    font-family: 'Roboto';
 }
 
-.left-side, .right-side {
-    width: 50%;
-    border: 1px solid gray;
+.left-side {
+    width: 60%;
+    border: 1px solid rgb(182, 182, 182);
+}
+.right-side {
+    background-color: rgb(168, 198, 255);
+    padding: 50px 70px;
+    max-width: 40%;
+    min-width: 40%;
+}
+.card {
+    box-shadow: 3px 3px 10px 1px #8d8d8d;
+    min-height: 100px;
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+#form-two {
+    margin: 0 20px;
+}
+#check-input, #radio-input {
+    margin: 10px;
+}
+.text {
+    margin: 20px 10px 0 10px;
+}
+.text input, #outlined-multiline-static {
+    width: 28vw;
+}
+.must {
+    font-size: 12px;
+    color: rgb(156, 37, 37);
+    margin: -5px 5px;
 }
 
-li {
-    list-style: none;
-}
-.sample-input {
-    height: 20px;
-    border: 1px solid rebeccapurple;
+/* NEWQUESTION.JS */
+.form-one {
     margin: 20px;
 }
+.form-one input{
+    height: 23px;
+    width: 250px;
+    margin: 20px 30px 30px 20px;
+    border-top: white;
+    border-left: white;
+    border-right: white;
+}
+
